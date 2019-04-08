@@ -27,7 +27,36 @@ $(document).ready(function() {
 
         //your code follows here
 
+        //username in element speichern
+        var element = document.getElementById("username");
+
+        //wert dieses elements auslesen und in variable speichern
+        var new_username = element.value;
+        //dieses Element in die Liste hinzufügen
+        userListBody.push(new_username);
+        //die länge der Liste also die Liste in eine variable speichern
+        var list = userListBody.length;
+
+        //die tabelle ansprechen und in eine variable speichern
+        var tabelle = document.getElementById("table");
+       //reihe in die Tabelle hinzufügen
+        var reihe = tabelle.insertRow(-1);
+
+        //zellen in die reihen einfügen
+        var zelle1 = reihe.insertCell(0);
+        var zelle2 = reihe.insertCell(1);
+        var zelle3 = reihe.insertCell(2);
+
+        //in die erste zeile die aktuelle länge speichern
+        zelle1.innerHTML = list;
+        //in der zweiten zelle wird der USer ausgegeben
+        zelle2.innerHTML = new_username;
+        //in der dritten zelle ist der Button zum löschen
+        zelle3.innerHTML = "<button type=\"button\" class=\"btn btn-secondary btn-danger deleteTrigger\" title=\"delete\"><i class=\"fa fa-trash\"></i></button>";
+
         return false;
+
+
     });
 
 
@@ -37,10 +66,18 @@ $(document).ready(function() {
         //2. update number of current users
 
         //your code follows here
+        //LÖSCHT DIE FALSCHE ZEILE UND NUR DER OBERSTE BUTTON FUNKTIONIERT
+        var index = document.getElementById("index").value
+        document.getElementById("table").deleteRow(index+1);
+
+
 
 
     });
 
     //maybe some code follows here
+
+
+
 
 });
